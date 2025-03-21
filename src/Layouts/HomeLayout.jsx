@@ -3,6 +3,7 @@ import {AiFillCloseCircle} from "react-icons/ai"
 import {Link, useNavigate} from 'react-router-dom'
 import Footer from '../Components/Footer';
 import {useDispatch,useSelector} from "react-redux"
+import { logout } from '../Redux/Slices/AuthSlice';
 // agr kisi page m iss layout ko use krna h to children prop ko pas kr denge
 function HomeLayout({children}){
     const dispatch = useDispatch();
@@ -18,6 +19,14 @@ function HomeLayout({children}){
         element[0].checked=false
         const drawerSide = document.getElementsByClassName("drawer-side");
         drawerSide[0].style.width=0;
+    }
+    
+    async function handleLogout(e){
+        e.preventDefault();
+        const res = await dispatch(logout());
+        if (res?.payload?.success) {
+            navigate("/")
+        }
     }
     return(
         <div className="min-h-[90vh bg-gray-400">

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL="http://localhost:5002/api/v1"
+const BASE_URL="http://localhost:5014/api/v1"
 // This creates a new Axios instance separate from the global axios instance.
 // It allows us to configure default settings without affecting other Axios requests in the app.
 
